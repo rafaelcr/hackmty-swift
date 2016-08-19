@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		424B0DE4C85D1F30014D047C /* libPods-VenueMap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 99046A7EB0CE8F914BB166CD /* libPods-VenueMap.a */; };
 		5BEEF99A1D66951B00466C1E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEEF9991D66951B00466C1E /* AppDelegate.swift */; };
 		5BEEF99C1D66951B00466C1E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEEF99B1D66951B00466C1E /* ViewController.swift */; };
 		5BEEF99F1D66951C00466C1E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BEEF99D1D66951C00466C1E /* Main.storyboard */; };
 		5BEEF9A11D66951C00466C1E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BEEF9A01D66951C00466C1E /* Assets.xcassets */; };
 		5BEEF9A41D66951C00466C1E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BEEF9A21D66951C00466C1E /* LaunchScreen.storyboard */; };
 		5BEEF9C91D66964600466C1E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BEEF9C81D66964600466C1E /* MapKit.framework */; };
+		5BEEF9CB1D67B2C400466C1E /* Foursquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEEF9CA1D67B2C400466C1E /* Foursquare.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +25,8 @@
 		5BEEF9A31D66951C00466C1E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5BEEF9A51D66951C00466C1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5BEEF9C81D66964600466C1E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		99046A7EB0CE8F914BB166CD /* libPods-VenueMap.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VenueMap.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BEEF9CA1D67B2C400466C1E /* Foursquare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Foursquare.swift; sourceTree = "<group>"; };
+		8BA1ECC1DCD334CB23A1F835 /* libPods-VenueMap.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VenueMap.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E125566CC0BB60ECFB2F24DB /* Pods-VenueMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VenueMap.release.xcconfig"; path = "Pods/Target Support Files/Pods-VenueMap/Pods-VenueMap.release.xcconfig"; sourceTree = "<group>"; };
 		F371C5C52879115C506107B6 /* Pods-VenueMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VenueMap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VenueMap/Pods-VenueMap.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -36,7 +37,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BEEF9C91D66964600466C1E /* MapKit.framework in Frameworks */,
-				424B0DE4C85D1F30014D047C /* libPods-VenueMap.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +79,7 @@
 				5BEEF9A01D66951C00466C1E /* Assets.xcassets */,
 				5BEEF9A21D66951C00466C1E /* LaunchScreen.storyboard */,
 				5BEEF9A51D66951C00466C1E /* Info.plist */,
+				5BEEF9CA1D67B2C400466C1E /* Foursquare.swift */,
 			);
 			path = VenueMap;
 			sourceTree = "<group>";
@@ -87,7 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				5BEEF9C81D66964600466C1E /* MapKit.framework */,
-				99046A7EB0CE8F914BB166CD /* libPods-VenueMap.a */,
+				8BA1ECC1DCD334CB23A1F835 /* libPods-VenueMap.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -99,12 +100,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5BEEF9BE1D66951C00466C1E /* Build configuration list for PBXNativeTarget "VenueMap" */;
 			buildPhases = (
-				D02DE355FCE4E84D9C255037 /* [CP] Check Pods Manifest.lock */,
 				5BEEF9921D66951B00466C1E /* Sources */,
 				5BEEF9931D66951B00466C1E /* Frameworks */,
 				5BEEF9941D66951B00466C1E /* Resources */,
-				2882B5FC95899B809D746EA3 /* [CP] Embed Pods Frameworks */,
-				02A2B6DD1FD220AF8C3FDD90 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -162,60 +160,13 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		02A2B6DD1FD220AF8C3FDD90 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VenueMap/Pods-VenueMap-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		2882B5FC95899B809D746EA3 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VenueMap/Pods-VenueMap-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D02DE355FCE4E84D9C255037 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		5BEEF9921D66951B00466C1E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				5BEEF99C1D66951B00466C1E /* ViewController.swift in Sources */,
+				5BEEF9CB1D67B2C400466C1E /* Foursquare.swift in Sources */,
 				5BEEF99A1D66951B00466C1E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -338,6 +289,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mx.hackerschool.VenueMap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -351,6 +303,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mx.hackerschool.VenueMap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

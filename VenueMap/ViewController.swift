@@ -13,6 +13,8 @@ import UIKit
 class ViewController: UIViewController, CLLocationManagerDelegate {
 
   let locationManager: CLLocationManager = CLLocationManager()
+  var currentLocation: CLLocation? = nil
+  
   @IBOutlet var mapView: MKMapView? = nil
   @IBOutlet var button: UIButton? = nil
 
@@ -26,7 +28,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
   // MARK: Button
   
   @IBAction func buttonPressed() {
-    
+    Foursquare.searchVenuesAroundLocation(currentLocation!) { (venues) in
+      print(venues)
+    }
   }
 
   // MARK: CLLocationManagerDelegate
@@ -37,6 +41,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
   
   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
     let location = locations.last!
+    currentLocation = location
     
     var region = MKCoordinateRegion()
     region.center = location.coordinate
