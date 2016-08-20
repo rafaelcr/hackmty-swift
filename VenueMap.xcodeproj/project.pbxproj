@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5BC385831D69010D00777DFA /* VenueDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC385821D69010D00777DFA /* VenueDetailController.swift */; };
 		5BEEF99A1D66951B00466C1E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEEF9991D66951B00466C1E /* AppDelegate.swift */; };
-		5BEEF99C1D66951B00466C1E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEEF99B1D66951B00466C1E /* ViewController.swift */; };
+		5BEEF99C1D66951B00466C1E /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEEF99B1D66951B00466C1E /* MapController.swift */; };
 		5BEEF99F1D66951C00466C1E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BEEF99D1D66951C00466C1E /* Main.storyboard */; };
 		5BEEF9A11D66951C00466C1E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BEEF9A01D66951C00466C1E /* Assets.xcassets */; };
 		5BEEF9A41D66951C00466C1E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BEEF9A21D66951C00466C1E /* LaunchScreen.storyboard */; };
@@ -17,18 +18,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5BC385821D69010D00777DFA /* VenueDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueDetailController.swift; sourceTree = "<group>"; };
 		5BEEF9961D66951B00466C1E /* VenueMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VenueMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BEEF9991D66951B00466C1E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5BEEF99B1D66951B00466C1E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5BEEF99B1D66951B00466C1E /* MapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
 		5BEEF99E1D66951C00466C1E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5BEEF9A01D66951C00466C1E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5BEEF9A31D66951C00466C1E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5BEEF9A51D66951C00466C1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5BEEF9C81D66964600466C1E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		5BEEF9CA1D67B2C400466C1E /* Foursquare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Foursquare.swift; sourceTree = "<group>"; };
-		8BA1ECC1DCD334CB23A1F835 /* libPods-VenueMap.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VenueMap.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E125566CC0BB60ECFB2F24DB /* Pods-VenueMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VenueMap.release.xcconfig"; path = "Pods/Target Support Files/Pods-VenueMap/Pods-VenueMap.release.xcconfig"; sourceTree = "<group>"; };
-		F371C5C52879115C506107B6 /* Pods-VenueMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VenueMap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VenueMap/Pods-VenueMap.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,22 +42,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		020DE6260AC50A5E005AB6DD /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				F371C5C52879115C506107B6 /* Pods-VenueMap.debug.xcconfig */,
-				E125566CC0BB60ECFB2F24DB /* Pods-VenueMap.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		5BEEF98D1D66951B00466C1E = {
 			isa = PBXGroup;
 			children = (
 				5BEEF9981D66951B00466C1E /* VenueMap */,
 				5BEEF9971D66951B00466C1E /* Products */,
 				5BEEF9C71D66964600466C1E /* Frameworks */,
-				020DE6260AC50A5E005AB6DD /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,12 +63,13 @@
 			isa = PBXGroup;
 			children = (
 				5BEEF9991D66951B00466C1E /* AppDelegate.swift */,
-				5BEEF99B1D66951B00466C1E /* ViewController.swift */,
+				5BEEF9CA1D67B2C400466C1E /* Foursquare.swift */,
+				5BEEF99B1D66951B00466C1E /* MapController.swift */,
+				5BC385821D69010D00777DFA /* VenueDetailController.swift */,
 				5BEEF99D1D66951C00466C1E /* Main.storyboard */,
 				5BEEF9A01D66951C00466C1E /* Assets.xcassets */,
 				5BEEF9A21D66951C00466C1E /* LaunchScreen.storyboard */,
 				5BEEF9A51D66951C00466C1E /* Info.plist */,
-				5BEEF9CA1D67B2C400466C1E /* Foursquare.swift */,
 			);
 			path = VenueMap;
 			sourceTree = "<group>";
@@ -88,7 +78,6 @@
 			isa = PBXGroup;
 			children = (
 				5BEEF9C81D66964600466C1E /* MapKit.framework */,
-				8BA1ECC1DCD334CB23A1F835 /* libPods-VenueMap.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -165,8 +154,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BEEF99C1D66951B00466C1E /* ViewController.swift in Sources */,
+				5BEEF99C1D66951B00466C1E /* MapController.swift in Sources */,
 				5BEEF9CB1D67B2C400466C1E /* Foursquare.swift in Sources */,
+				5BC385831D69010D00777DFA /* VenueDetailController.swift in Sources */,
 				5BEEF99A1D66951B00466C1E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,7 +272,6 @@
 		};
 		5BEEF9BF1D66951C00466C1E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F371C5C52879115C506107B6 /* Pods-VenueMap.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = VenueMap/Info.plist;
@@ -296,7 +285,6 @@
 		};
 		5BEEF9C01D66951C00466C1E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E125566CC0BB60ECFB2F24DB /* Pods-VenueMap.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = VenueMap/Info.plist;
