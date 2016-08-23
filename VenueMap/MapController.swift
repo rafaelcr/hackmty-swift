@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MapController.swift
 //  VenueMap
 //
 //  Created by Rafael Cardenas on 8/18/16.
@@ -12,19 +12,19 @@ import UIKit
 
 class MapController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
-  let locationManager: CLLocationManager = CLLocationManager()
+  let locationManager = CLLocationManager()
   
-  var currentLocation: CLLocation? = nil
-  var selectedVenue: Venue? = nil
+  var currentLocation: CLLocation?
+  var selectedVenue: Venue?
   
-  @IBOutlet var mapView: MKMapView? = nil
-  @IBOutlet var button: UIButton? = nil
+  @IBOutlet var mapView: MKMapView?
+  @IBOutlet var button: UIButton?
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    locationManager.requestWhenInUseAuthorization()
     locationManager.delegate = self
+    locationManager.requestWhenInUseAuthorization()
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -39,17 +39,20 @@ class MapController: UIViewController, CLLocationManagerDelegate, MKMapViewDeleg
   @IBAction func getVenuesButtonPressed() {
     // Send a request to Foursquare asking for venues around the current location.
     Foursquare.searchVenuesAroundLocation(currentLocation!) { (venues) in
-      var annotations = Array<VenueAnnotation>()
-      for venue in venues {
-        let annotation = VenueAnnotation()
-        annotation.coordinate = venue.coordinate
-        annotation.title = venue.name
-        annotation.venue = venue
-        annotations.append(annotation)
-      }
-      
-      DispatchQueue.main.async {
-        self.mapView?.addAnnotations(annotations)
+      if let mapView = self.mapView {
+        var annotations = Array<VenueAnnotation>()
+        for venue in venues {
+          let annotation = VenueAnnotation()
+          annotation.coordinate = venue.coordinate
+          annotation.title = venue.name
+          annotation.venue = venue
+          annotations.append(annotation)
+        }
+
+        DispatchQueue.main.async {
+          mapView.removeAnnotations(mapView.annotations)
+          mapView.addAnnotations(annotations)
+        }
       }
     }
   }
@@ -66,13 +69,12 @@ class MapController: UIViewController, CLLocationManagerDelegate, MKMapViewDeleg
   }
   
   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-    let location = locations.last!
-    currentLocation = location
+    currentLocation = locations.last!
     
+    // Zoom the map view around the current location.
     var region = MKCoordinateRegion()
-    region.center = location.coordinate
+    region.center = currentLocation!.coordinate
     region.span = MKCoordinateSpanMake(0.005, 0.005)
-    
     mapView?.setRegion(region, animated: true)
   }
   
@@ -111,6 +113,7 @@ class MapController: UIViewController, CLLocationManagerDelegate, MKMapViewDeleg
 
 }
 
+/// A pin annotation that holds a reference to a `Venue`.
 class VenueAnnotation: MKPointAnnotation {
   var venue: Venue? = nil
 }

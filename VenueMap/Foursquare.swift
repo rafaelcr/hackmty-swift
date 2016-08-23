@@ -27,13 +27,12 @@ class Foursquare {
   
   class func searchVenuesAroundLocation(_ location: CLLocation,
                                         callback: @escaping (Array<Venue>) -> Void) {
-    let urlString = String(format: "%@?ll=%f,%f&client_id=%@&client_secret=%@&v=20160819",
-                           venueSearchURL,
-                           location.coordinate.latitude, location.coordinate.longitude,
-                           clientID, clientSecret)
-    let url = URL(string: urlString)
-    
-    let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
+    let url = URL(string: "\(venueSearchURL)?" +
+      "ll=\(location.coordinate.latitude),\(location.coordinate.longitude)&" +
+      "client_id=\(clientID)&" +
+      "client_secret=\(clientSecret)&" +
+      "v=20160819")
+    let downloadTask = URLSession.shared.dataTask(with: url!) { (data, response, error) in
       if error != nil {
         print(error)
         callback([])
@@ -42,8 +41,7 @@ class Foursquare {
       do {
         if data != nil {
           // Parse JSON response.
-          let json = try JSONSerialization.jsonObject(with: data!)
-            as? Dictionary<String, AnyObject>
+          let json = try JSONSerialization.jsonObject(with: data!) as? Dictionary<String, AnyObject>
           let jsonResponse = json?["response"] as? Dictionary<String, AnyObject>
           let jsonVenues = jsonResponse?["venues"] as? Array<Dictionary<String, AnyObject>>
           
@@ -74,7 +72,7 @@ class Foursquare {
         callback([])
       }
     }
-    task.resume()
+    downloadTask.resume()
   }
   
 }

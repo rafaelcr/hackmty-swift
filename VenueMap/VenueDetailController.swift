@@ -10,7 +10,7 @@ import UIKit
 
 class VenueDetailController: UITableViewController {
   
-  var venue: Venue? = nil
+  var venue: Venue?
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
